@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Cliente, Tarefa, Status } from "../types";
+import { Cliente, Tarefa, Status } from "../Types";
 
 interface AppContextType {
   clientes: Cliente[];

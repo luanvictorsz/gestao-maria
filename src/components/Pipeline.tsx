@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useApp } from "../context/AppContext";
-import { Status } from "../types";
+import { Status } from "../Types";
 import ClientCard from "./ClientCard";
 
 const columns: { label: string; value: Status }[] = [
@@ -35,11 +35,11 @@ export default function Pipeline() {
           <div key={col.value} className="column">
             <h3>{col.label}</h3>
 
-            {clientes
-              .filter((c) => c.status === col.value)
-              .map((c) => (
-                <ClientCard key={c.id} cliente={c} />
-              ))}
+                {(clientes || [])
+                .filter((c) => c.status === col.value)
+                .map((c) => (
+                    <ClientCard key={c.id} cliente={c} />
+                ))}
           </div>
         ))}
       </div>

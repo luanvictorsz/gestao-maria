@@ -1,4 +1,4 @@
-import { Cliente, Status } from "../types";
+import { Cliente, Status } from "../Types";
 import { useApp } from "../context/AppContext";
 
 const next: Record<Status, Status | null> = {
