@@ -15,6 +15,12 @@ export default function Pipeline() {
   const { clientes, addCliente, moverCliente } = useApp();
   const [nome, setNome] = useState("");
 
+  const handleAdd = () => {
+    if (!nome.trim()) return;
+    addCliente(nome);
+    setNome("");
+  };
+
   return (
     <div className="pipeline">
       <h2>Bem Vinda - Maria Paula</h2>
@@ -23,15 +29,13 @@ export default function Pipeline() {
         <input
           value={nome}
           onChange={(e) => setNome(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleAdd();
+          }}
           placeholder="Novo cliente"
         />
-        <button
-          onClick={() => {
-            if (!nome.trim()) return;
-            addCliente(nome);
-            setNome("");
-          }}
-        >
+
+        <button onClick={handleAdd}>
           Adicionar
         </button>
       </div>
