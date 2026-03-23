@@ -10,17 +10,15 @@ const next: Record<Status, Status | null> = {
 };
 
 export default function ClientCard({ cliente }: { cliente: Cliente }) {
-  const { moverCliente } = useApp();
-
   return (
-    <div className="card">
+    <div
+      className="card"
+      draggable
+      onDragStart={(e) => {
+        e.dataTransfer.setData("clienteId", cliente.id);
+      }}
+    >
       <p>{cliente.nome}</p>
-
-      {next[cliente.status] && (
-        <button onClick={() => moverCliente(cliente.id, next[cliente.status]!)}>
-          Avançar
-        </button>
-      )}
     </div>
   );
 }

@@ -1,43 +1,42 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
-  background: #0d0d0d;
+  background: linear-gradient(360deg, #020024 0%, #090979 100%);
   color: #ffffff;
 }
 
-/* Layout geral */
 .layout {
   display: flex;
   height: 100vh;
 }
 
-/* Pipeline (principal) */
+/* Pipeline */
 .pipeline {
   flex: 3;
   padding: 16px;
-  background: #0d0d0d;
+  background: linear-gradient(360deg, #020024 0%, #090979 100%);
 }
 
-/* Tasks (sidebar) */
+/* Sidebar */
 .tasks {
   flex: 1;
   padding: 16px;
-  background: #111;
-  border-left: 2px solid #ff003c;
+  background: #0a0a1f;
+  border-left: 2px solid #0077b6;
 }
 
 /* Títulos */
 h2 {
-  color: #ff003c;
+  color: #00b4d8;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border-bottom: 2px solid #ff003c;
+  border-bottom: 2px solid #0077b6;
   padding-bottom: 5px;
 }
 
 h3 {
-  color: #ffffff;
-  border-left: 4px solid #ff003c;
+  color: #caf0f8;
+  border-left: 4px solid #00b4d8;
   padding-left: 6px;
 }
 
@@ -49,56 +48,57 @@ h3 {
 
 .column {
   flex: 1;
-  background: #1a1a1a;
+  background: #0a0a1f;
   padding: 12px;
   min-height: 300px;
-  border: 2px solid #ff003c;
-  box-shadow: 4px 4px 0px #000;
+  border: 2px solid #0077b6;
+  box-shadow: 4px 4px 0px #020024;
   transform: skew(-1deg);
 }
 
 /* Cards */
 .card {
-  background: #000;
+  background: #020024;
   padding: 10px;
   margin-bottom: 10px;
-  border: 2px solid #ff003c;
-  box-shadow: 3px 3px 0px #ff003c;
-  transition: transform 0.1s ease;
+  border: 2px solid #00b4d8;
+  box-shadow: 3px 3px 0px #0077b6;
+  transition: all 0.1s ease;
 }
 
 .card:hover {
   transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #00b4d8;
 }
 
 /* Inputs */
 input {
-  background: #000;
+  background: #020024;
   color: #fff;
-  border: 2px solid #ff003c;
+  border: 2px solid #0077b6;
   padding: 6px;
   margin-right: 6px;
 }
 
 input::placeholder {
-  color: #aaa;
+  color: #89c2d9;
 }
 
 /* Botões */
 button {
-  background: #ff003c;
+  background: #0077b6;
   color: #fff;
   border: none;
   padding: 6px 10px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 2px 2px 0px #000;
+  box-shadow: 2px 2px 0px #020024;
   transition: all 0.1s ease;
 }
 
 button:hover {
-  background: #ffffff;
-  color: #ff003c;
+  background: #00b4d8;
+  color: #020024;
   transform: translate(-1px, -1px);
 }
 
@@ -111,10 +111,11 @@ button:hover {
 .tasks li {
   margin-bottom: 8px;
   padding: 6px;
-  border-left: 3px solid #ff003c;
-  background: #000;
+  border-left: 3px solid #00b4d8;
+  background: #020024;
 }
 
+/* Checkbox */
 input[type="checkbox"] {
-  accent-color: #ff003c;
+  accent-color: #00b4d8;
 }
