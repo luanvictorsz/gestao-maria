@@ -1,39 +1,120 @@
 body {
-  font-family: Arial;
+  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
+  background: #0d0d0d;
+  color: #ffffff;
 }
 
+/* Layout geral */
 .layout {
   display: flex;
   height: 100vh;
 }
 
+/* Pipeline (principal) */
 .pipeline {
   flex: 3;
-  padding: 10px;
+  padding: 16px;
+  background: #0d0d0d;
 }
 
+/* Tasks (sidebar) */
 .tasks {
   flex: 1;
-  padding: 10px;
-  border-left: 1px solid #ccc;
+  padding: 16px;
+  background: #111;
+  border-left: 2px solid #ff003c;
 }
 
+/* Títulos */
+h2 {
+  color: #ff003c;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #ff003c;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #ffffff;
+  border-left: 4px solid #ff003c;
+  padding-left: 6px;
+}
+
+/* Colunas */
 .columns {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .column {
   flex: 1;
-  background: #f5f5f5;
-  padding: 10px;
+  background: #1a1a1a;
+  padding: 12px;
   min-height: 300px;
+  border: 2px solid #ff003c;
+  box-shadow: 4px 4px 0px #000;
+  transform: skew(-1deg);
 }
 
+/* Cards */
 .card {
-  background: white;
+  background: #000;
   padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ff003c;
+  box-shadow: 3px 3px 0px #ff003c;
+  transition: transform 0.1s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+}
+
+/* Inputs */
+input {
+  background: #000;
+  color: #fff;
+  border: 2px solid #ff003c;
+  padding: 6px;
+  margin-right: 6px;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Botões */
+button {
+  background: #ff003c;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.1s ease;
+}
+
+button:hover {
+  background: #ffffff;
+  color: #ff003c;
+  transform: translate(-1px, -1px);
+}
+
+/* Lista de tarefas */
+.tasks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tasks li {
   margin-bottom: 8px;
-  border: 1px solid #ddd;
+  padding: 6px;
+  border-left: 3px solid #ff003c;
+  background: #000;
+}
+
+input[type="checkbox"] {
+  accent-color: #ff003c;
 }
