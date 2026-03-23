@@ -6,8 +6,10 @@ interface AppContextType {
   tarefas: Tarefa[];
   addCliente: (nome: string) => void;
   moverCliente: (id: string, status: Status) => void;
+  removeCliente: (id: string) => void;
   addTarefa: (titulo: string) => void;
   toggleTarefa: (id: string) => void;
+  removeTarefa: (id: string) => void;
 }
 
 const AppContext = createContext<AppContextType>({} as AppContextType);
@@ -17,10 +19,16 @@ export const AppProvider = ({ children }: any) => {
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
 
   useEffect(() => {
-    const c = localStorage.getItem("clientes");
-    const t = localStorage.getItem("tarefas");
-    if (c) setClientes(JSON.parse(c));
-    if (t) setTarefas(JSON.parse(t));
+    try {
+      const c = localStorage.getItem("clientes");
+      const t = localStorage.getItem("tarefas");
+
+      if (c) setClientes(JSON.parse(c));
+      if (t) setTarefas(JSON.parse(t));
+    } catch {
+      setClientes([]);
+      setTarefas([]);
+    }
   }, []);
 
   useEffect(() => {
@@ -54,9 +62,11 @@ export const AppProvider = ({ children }: any) => {
     if (novas.length) {
       setTarefas((prev) => [...prev, ...novas]);
     }
-  }, [clientes]);
+  }, [clientes, tarefas]);
 
   const addCliente = (nome: string) => {
+    if (!nome.trim()) return;
+
     setClientes((prev) => [
       ...prev,
       {
@@ -78,7 +88,13 @@ export const AppProvider = ({ children }: any) => {
     );
   };
 
+  const removeCliente = (id: string) => {
+    setClientes((prev) => prev.filter((c) => c.id !== id));
+  };
+
   const addTarefa = (titulo: string) => {
+    if (!titulo.trim()) return;
+
     setTarefas((prev) => [
       ...prev,
       {
@@ -98,9 +114,22 @@ export const AppProvider = ({ children }: any) => {
     );
   };
 
+  const removeTarefa = (id: string) => {
+    setTarefas((prev) => prev.filter((t) => t.id !== id));
+  };
+
   return (
     <AppContext.Provider
-      value={{ clientes, tarefas, addCliente, moverCliente, addTarefa, toggleTarefa }}
+      value={{
+        clientes,
+        tarefas,
+        addCliente,
+        moverCliente,
+        removeCliente,
+        addTarefa,
+        toggleTarefa,
+        removeTarefa,
+      }}
     >
       {children}
     </AppContext.Provider>
